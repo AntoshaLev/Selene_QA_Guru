@@ -3,7 +3,7 @@ from selene import browser, have
 
 
 def test_filling_form():
-    browser.open('/')
+    browser.open('/automation-practice-form')
     browser.element('#firstName').type('Anton')
     browser.element('#lastName').type('Levochkin')
     browser.element('#userEmail').type('www.Garu33@mail.ru')
