@@ -1,6 +1,5 @@
 import os
-from selene import browser, have, be, command
-import pytest
+from selene import browser, have
 
 
 def test_filling_form():
@@ -19,8 +18,8 @@ def test_filling_form():
     browser.element('[for="hobbies-checkbox-3"]').click()
     browser.element('#uploadPicture').send_keys(os.path.abspath('file/1669713891808.jpg'))
     browser.element('#currentAddress').type('adress')
-    browser.element('#react-select-3-input').type('Rajasthan').press_enter()
-    browser.element('#react-select-4-input').type('Jaiselmer').press_enter()
+    browser.element("#state").click().element("#react-select-3-option-1").click()
+    browser.element("#city").click().element("#react-select-4-option-0").click()
     browser.element("#submit").click()
     browser.element('#example-modal-sizes-title-lg').should(have.text("Thanks for submitting the form"))
     browser.element('.table').all('tr td:nth-child(2)').should(have.texts(
@@ -33,5 +32,5 @@ def test_filling_form():
         'Sports, Music',
         '1669713891808.jpg',
         'adress',
-        'Rajasthan Jaiselmer'
+        'Uttar Pradesh Agra'
     ))
